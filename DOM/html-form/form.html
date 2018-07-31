@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+
+</head>
+
+<body>
+    <form id="panda" action="">
+        <div class=name>Username:</div>
+        <div class=field> <input type="text" id="uName" required placeholder="Name" minlength="5" maxlength="20"></div>
+        <div class=name>Email:</div>
+        <!-- <div class=field> <input type="text" required placeholder="your-name@somewher.com" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" maxlength="40"></div> -->
+        <div class=field> <input type="text" required placeholder="your-name@somewher.com" maxlength="40"></div>
+        <div class=name> Password:</div>
+        <div class=field> <input type="password" placeholder="" id="uPassword" required maxlength="20"></div>
+        <div class=name> Repeate password:</div>
+        <div class=field> <input type="password" placeholder="" id="rePassword" required maxlength="20"></div>
+        <div class=name> Telephone:</div>
+        <div class=field> <input type="tel" placeholder="+999-99-999-9999" id="uPhone" required maxlength="20"></div>
+        <div class=name> Country:</div>
+        <div class=field></div>
+        <select name="country" id="uCountry" required>
+        <option value="">Please choose your country</option>
+        <option value="USA">United Nations</option>
+        <option value="IL">Isreal</option>
+        <option value="FR">France</option>
+        <option value="GER">Germany</option>
+        <option value="THAI">Thailand</option>
+        </select>
+        </br>
+        <div style="display: inline-block;"><input type="checkbox">Remember me</div>
+        </br>
+        <input type="submit" value="Submit" onclick="submitForm();">
+        <!-- <button style="display: block; type=" button ">Send</button> -->
+    </form>
+    <div id="user-msg"></div>
+
+    <script type="text/javascript">
+        // your function
+        var my_func = function(event) {
+            event.preventDefault();
+        };
+
+
+        function submitForm() {
+            // my form
+            let form = document.getElementById("panda");
+            let name = document.getElementById("uName").value;
+            let password = document.getElementById("uPassword").value;
+            let repassword = document.getElementById("rePassword").value;
+            let country = document.getElementById("uCountry").value;
+            let phone = document.getElementById("uPhone").value;
+            let msg = "";
+            // attach event listener
+            form.addEventListener("submit", my_func, true);
+            //username validation
+            if (name.length >= 5) {
+                msg = msg.replace(" Your username is too short" + "</br>", '');
+                //alert("thank you " + name);
+            } else {
+                msg = msg + " Your username is too short" + "</br>";
+            }
+            //password validation
+            if (password.length >= 6) {
+                msg = msg.replace(" Your password is too short" + "</br>", '');
+
+            } else {
+                msg = msg + " Your password is too short" + "</br>";
+                //or like this also:
+                //let textnode = document.createTextNode("Your password is too short");
+                //document.getElementById("user-msg").appendChild(textnode);
+            }
+            // password and repassword equal validation
+            if ((password === repassword)) {
+                msg = msg.replace(" Your retype password not equal to your retype" + "</br>", '');
+
+            } else {
+                msg = msg + " Your retype password not equal to your retype" + "</br>";
+
+            }
+            // country validation
+            if ((country === "USA") || (country === "IL")) {
+                msg = msg.replace(" Your can only allow to choose Israel and United states", '');
+            } else {
+                msg = msg + " You can only allow to choose Israel and United states" + "</br>";
+
+            }
+            // phone validation
+            if (phone.length < 15) {
+                msg = msg.replace(" Your phone number is longer than 15 digits" + "</br>");
+            } else {
+                msg = msg + " Your phone number is longer than 15 digits" + "</br>";
+
+            }
+            document.getElementById("user-msg").innerHTML = msg;
+            document.getElementById("user-msg").style.color = "red";
+            if (msg === '') {
+                //location.reload();
+                document.getElementById("user-msg").innerHTML = "</br>" + name + "</br>" + " We thank you so much for fill in our special form";
+                document.getElementById("user-msg").style.color = "green";
+            }
+
+        }
+    </script>
+
+</body>
+
+</html>
