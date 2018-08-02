@@ -1,0 +1,86 @@
+#login-window {
+    height: 600px;
+    width: 500px;
+    margin: auto;
+    border-style: groove;
+    border-radius: 5px 5px 5px 5px;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+.log-body {
+    border-radius: 5px 5px 0 0;
+    height: 60%;
+    background-color: rgba(163, 16, 16, 0.788);
+}
+
+.log-body div {
+    height: 10%;
+    margin: auto;
+    text-align: center;
+    color: whitesmoke;
+    font-size: 25px;
+}
+
+.log-body form {
+    height: 100%;
+    text-align: center;
+}
+
+.input-form {
+    width: 90%;
+    height: 40px;
+    margin: auto;
+    margin-top: 10px;
+    box-shadow: 1px 1px #d4d1d1f3;
+    padding-left: 5px;
+    border-radius: 10px;
+    font-size: 25px;
+}
+
+#h-body {
+    padding: 2%;
+}
+
+#btn-form {
+    height: 40px;
+    width: 50%;
+    margin: auto;
+    margin-top: 20px;
+    border-radius: 30px;
+    font-size: 25px;
+}
+
+.log-footer {
+    border-radius: 0 0 5px 5px;
+    height: 40%;
+    background-color: rgba(163, 16, 16, 0.664);
+    text-align: center;
+    margin: auto;
+    font-size: 25px;
+}
+
+#btn-open {
+    width: 80%;
+    height: 90px;
+    margin: auto;
+    margin-top: 20px;
+    font-size: 25px;
+}
+
+#btn-open img {
+    height: 50%;
+    width: 15%;
+    margin: -4%;
+    padding: 0%;
+    margin-left: 2%;
+}
+
+.log-footer div {
+    padding: 2%;
+    font-size: 27px;
+    color: whitesmoke;
+}
